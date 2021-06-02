@@ -52,7 +52,6 @@ module.exports = app =>{
     app.post('/user', (req, res) =>{
         
         users.addUser(new User(req.body.name))
-        console.log(users);
         res.status('201').json({
             status: 'ok',
             id: users.length

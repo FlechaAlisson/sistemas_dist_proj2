@@ -35,6 +35,13 @@ var Users = class Users {
             new User("Claúdia"),
             new User("Xuxa")
         ]
+        if (!!Users.instance) {
+            return Users.instance;
+        }
+
+        Users.instance = this;
+
+        return this;
     }
 
     addUser(user) {
