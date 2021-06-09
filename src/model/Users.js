@@ -1,13 +1,13 @@
 var User = class User {
     constructor(name) {
-        this._name = name
+        this.name = name
         this.tweets = []
-        this.followers = []
+        this.following = []
     }
 
     toFollow(userToFollow) {
-        if (!this.followers.includes(userToFollow)) {
-            this.followers.push(userToFollow)
+        if (!this.following.includes(userToFollow)) {
+            this.following.push(userToFollow)
         } else {
             throw new Error('Você já segue essa pessoa')
         }
@@ -19,8 +19,8 @@ var User = class User {
     }
 
     toUnfollow(userToUnfollow) {
-        if (this.followers.includes(userToUnfollow)) {
-            this.followers = this.followers.filter((e) => e != userToUnfollow)
+        if (this.following.includes(userToUnfollow)) {
+            this.following = this.following.filter((e) => e != userToUnfollow)
         } else {
             throw new Error('Você não segue essa pessoa')
         }
@@ -31,9 +31,9 @@ var User = class User {
 var Users = class Users {
     constructor() {
         this.users = [
-            new User("Alisson"),
+            new User("João"),
             new User("Claúdia"),
-            new User("Xuxa")
+            new User("Natiele")
         ]
         if (!!Users.instance) {
             return Users.instance;
